@@ -1,0 +1,23 @@
+[
+    {
+        "titre": "meet",
+        "description": "gotta met mr E.J",
+        "debut": "21-07-2022",
+        "fin": "23-07-2022",
+        "statut": "En cours"
+    },
+    {
+        "titre": "clean",
+        "description": "gotta clean the room",
+        "debut": "24-07-2022",
+        "fin": "26-07-2022",
+        "statut": "A realiser"
+    },
+    {
+        "titre": "Homework",
+        "description": "gotta do my homework",
+        "debut": "26-07-2022",
+        "fin": "27-07-2022",
+        "statut": "A realiser"
+    },
+]
