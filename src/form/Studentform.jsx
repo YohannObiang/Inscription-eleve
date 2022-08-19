@@ -162,7 +162,7 @@ const Forms = ({Students, setStudents}) => {
                 </Box>
                 <br></br>
                 <Stack sx={{m:0}} spacing={2} direction="row">
-                    <Button variant="contained" onClick={Next} >Next</Button>
+                    <Button variant="contained" onClick={Next} >Suivant</Button>
                 </Stack>
                       
             </div>
