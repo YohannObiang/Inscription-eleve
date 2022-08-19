@@ -6,10 +6,9 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
 
-const steps = ['bolo', 'Create an ad group', 'Create an ad'];
-
-export default function HorizontalLinearStepper() {
+export default function HorizontalLinearStepper({Next},{Previous},{Submit}) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
@@ -56,7 +55,7 @@ export default function HorizontalLinearStepper() {
   };
 
   return (
-    <Box sx={{ width: '80%' }}>
+    <Box sx={{ width: '100%' }}>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
@@ -105,7 +104,7 @@ export default function HorizontalLinearStepper() {
               </Button>
             )}
 
-            <Button onClick={handleNext}>
+            <Button onClick={Next}>
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
             </Button>
           </Box>

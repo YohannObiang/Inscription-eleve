@@ -9,8 +9,12 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 
+document.getElementById('stepone').style.display="block"
+document.getElementById('steptwo').style.display="none"
 
-const Form = ({Students, setStudents}) => {
+
+
+const Forms = ({Students, setStudents}) => {
     const handleChange = (event) => {setClasse(event.target.value);};
     const handleChangeSexe = (event) => {setSexe(event.target.value);};
     const [Birthdate, setBirthdate] = React.useState(null);
@@ -60,13 +64,23 @@ const Form = ({Students, setStudents}) => {
         setNumber('');
         setEmail('');
         localStorage.setItem('Taches',JSON.stringify(Students))
-  
+        document.getElementById('stepone').style.display="block"
+        document.getElementById('steptwo').style.display="none"
     }
 
+    const Next = () =>{
+        document.getElementById('stepone').style.display="none"
+        document.getElementById('steptwo').style.display="block"
+    }
+    const Previous = () =>{
+        document.getElementById('stepone').style.display="block"
+        document.getElementById('steptwo').style.display="none"
+    }
     
     return ( 
       <div >           
             <form className='Formulaire'>
+            <div id='stepone'>
             <h1>Information sur l'élève</h1>
             <br></br>
                 <Box
@@ -112,7 +126,7 @@ const Form = ({Students, setStudents}) => {
                 </Box>                <br></br>
                 <div className='inputedate'>
                 <input type= "date"  label="Date-Birthdate" variant="outlined" id="Birthdate" value = {Birthdate} onChange={e => setBirthdate(e.target.value)}></input>    
-</div>
+                </div>
                 </div>
                 <br></br>
                 <Box
@@ -146,11 +160,16 @@ const Form = ({Students, setStudents}) => {
                     </FormControl>
                 </Box>
                 <br></br>
+                <Stack sx={{m:0}} spacing={2} direction="row">
+                    <Button variant="contained" onClick={Next} >Next</Button>
+                </Stack>
+                      
+            </div>
 
+            <div id='steptwo'>
 
-            <div>
-           < h1>Information sur le tuteur</h1>
-            <br></br>
+                < h1>Information sur le tuteur</h1>
+                <br></br>
                 <Box
                     component="form"
                     sx={{
@@ -205,15 +224,25 @@ const Form = ({Students, setStudents}) => {
                     >
                     <TextField label="Adresse email" variant="outlined" id="Email" value = {Email} onChange={e => setEmail(e.target.value)} />
                 </Box>
-            </div>
-            
                 <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <div className='button'>
+                
+                <Stack sx={{m:0}} spacing={2} className="previous" direction="row">
+                    <Button variant="contained" onClick={Previous} >Previous</Button>
+                </Stack>
                 <Stack sx={{m:0}} spacing={2} direction="row">
                     <Button variant="contained" onClick={Submit} >Ajouter</Button>
                 </Stack>
+                </div>
+            </div>
             </form>
+            
       </div>
      );
 }
  
-export default Form;
+export default Forms;
