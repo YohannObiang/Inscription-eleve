@@ -9,12 +9,13 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 
-document.getElementById('stepone').style.display="block"
-document.getElementById('steptwo').style.display="none"
+
+
 
 
 
 const Forms = ({Students, setStudents}) => {
+
     const handleChange = (event) => {setClasse(event.target.value);};
     const handleChangeSexe = (event) => {setSexe(event.target.value);};
     const [Birthdate, setBirthdate] = React.useState(null);
@@ -231,8 +232,8 @@ const Forms = ({Students, setStudents}) => {
                 <br></br>
                 <div className='button'>
                 
-                <Stack sx={{m:0}} spacing={2} className="previous" direction="row">
-                    <Button variant="contained" onClick={Previous} >Previous</Button>
+                <Stack sx={{m:0}} spacing={2}  direction="row">
+                    <Button variant="contained"  className="previous" onClick={Previous} >Précédent</Button>
                 </Stack>
                 <Stack sx={{m:0}} spacing={2} direction="row">
                     <Button variant="contained" onClick={Submit} >Ajouter</Button>

@@ -45,7 +45,12 @@ input{
   display: flex;
   justify-content: space-between;
 }
-.previous{
+div #steptwo .previous{
   background-color: transparent;
-  color: blue;
+  color: #1565C0;
+  border: none;
+  font-weight: 500;
+}
+div #steptwo{
+  display: none;
 }
