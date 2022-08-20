@@ -54,3 +54,7 @@ div #steptwo .previous{
 div #steptwo{
   display: none;
 }
+div .buttonnext{
+  display: flex;
+  justify-content: end;
+}

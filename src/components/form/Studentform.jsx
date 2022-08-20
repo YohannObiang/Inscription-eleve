@@ -14,6 +14,8 @@ import Button from '@mui/material/Button';
 
 
 
+
+
 const Forms = ({Students, setStudents}) => {
 
     const handleChange = (event) => {setClasse(event.target.value);};
@@ -36,9 +38,9 @@ const Forms = ({Students, setStudents}) => {
     const [Number, setNumber] = React.useState('');
     const [Email, setEmail] = React.useState('');
 
-
+  
     const Submit = () => {
-
+        if (Name && Parentfirstname && Job && Number && Email){
         let Student={
           Nom,
           Prenom,
@@ -65,18 +67,31 @@ const Forms = ({Students, setStudents}) => {
         setNumber('');
         setEmail('');
         localStorage.setItem('Taches',JSON.stringify(Students))
+       
         document.getElementById('stepone').style.display="block"
-        document.getElementById('steptwo').style.display="none"
+        document.getElementById('steptwo').style.display="none"}
+        else{
+            alert("Veuillez remplir tous les champs avant de continuer")
+            
+        }
     }
+    
 
     const Next = () =>{
+        if (Nom && Prenom && Sexe && Birthdate && Birthplace && Classe) {
         document.getElementById('stepone').style.display="none"
         document.getElementById('steptwo').style.display="block"
     }
+        else{
+            alert("Veuillez remplir tous les champs avant de continuer")
+            
+        }
+}
     const Previous = () =>{
         document.getElementById('stepone').style.display="block"
         document.getElementById('steptwo').style.display="none"
     }
+
     
     return ( 
       <div >           
@@ -161,10 +176,11 @@ const Forms = ({Students, setStudents}) => {
                     </FormControl>
                 </Box>
                 <br></br>
+                <div className='buttonnext'>
                 <Stack sx={{m:0}} spacing={2} direction="row">
                     <Button variant="contained" onClick={Next} >Suivant</Button>
                 </Stack>
-                      
+                </div>     
             </div>
 
             <div id='steptwo'>
@@ -212,7 +228,7 @@ const Forms = ({Students, setStudents}) => {
                     noValidate
                     autoComplete="off"
                     >
-                    <TextField label="Numero de telephone" variant="outlined" id="Number" value = {Number} onChange={e => setNumber(e.target.value)} />
+                    <TextField label="Numero de telephone" inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} variant="outlined" id="Number" value = {Number} onChange={e => setNumber(e.target.value)} />
                 </Box>
                 <br></br>
                 <Box

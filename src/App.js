@@ -1,7 +1,7 @@
 import './App.css';
-import Tableau from './tableau/tableau';
+import Tableau from './components/tableau/tableau';
 import React, { Component } from 'react';
-import Forms from './form/Studentform';
+import Forms from './components/form/Studentform';
 const getDatafromLS=()=>{
   const data = localStorage.getItem('Taches');
   if(data){
